@@ -9,13 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bootstrap 4 Portfolio/Resume Theme for Developers">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="assets/plugins/leaflet/leaflet.css" rel='stylesheet' type='text/css'>
 
     <!-- FontAwesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+
+    <!-- HERE API -->
+    <!-- <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1542186754" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script> -->
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -44,9 +54,9 @@
                 <!-- <ul class="social list-inline">
                     <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                     <li class="list-inline-item"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>-->
                     <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow"></i></a></li>
+                    <!--<li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow"></i></a></li>
                     <li class="list-inline-item last-item"><a href="#"><i class="fab fa-codepen"></i></a></li>
                 </ul>  -->
             </div><!--//profile-->
@@ -63,8 +73,9 @@
                       <div class="section-inner">
                           <h2 class="heading">About Me</h2>
                           <div class="content">
-                              <p>Hi, I am Daniel. I am from Bolzano, a small town in the Italian Alps. Bolzano province is bilingual and a melting pot between Italian and Austrian culture due to its history.  My father is British, so one could say am a half-British, German-speaking Italian, moulded by a multicultural and multilingual environment. </p>
-                              <p>In the professional and academic world I describe myself as a passionate geo-information researcher, developer and tech lover. With an environmental sciences and geographical technology background, my main interests lie in nature, environmental monitoring, sensors, the Internet of Things and interoperability and geospatial web development. </p>
+                              <p>Hi, I am Daniel. I am from Bolzano, a small town in the Italian Alps. Bolzano province is bilingual and a melting pot between Italian and Austrian culture due to its history.  My father is British, so one could say I am a half-British, German-speaking Italian, moulded by a multicultural and multilingual environment. </p>
+                              <p>In the professional and academic world I describe myself as a passionate geo-information researcher, developer and tech lover. With an environmental sciences and geographical technology background, my main interests lie in nature, environmental monitoring, sensors, open data and open hardware, the Internet of Things, interoperability and geospatial web development. </p>
+                              <p></p>
                           </div><!--//content-->
                       </div><!--//section-inner-->
                   </section><!--//section-->
@@ -73,7 +84,7 @@
                           <h2 class="heading">Work Experience</h2>
                           <div class="content">
                               <div class="item">
-                                  <h3 class="title">Co-Founder & Lead Developer - <span class="place"><a href="#">Startup Hub</a></span> <span class="year">(2014 - Present)</span></h3>
+                                  <h3 class="title">GI Researcher - <span class="place"><a href="#">EURAC Research - Institute for Earth Observation</a></span> <span class="year">(January 2017 - July 2017)</span></h3>
                                   <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
                               </div><!--//item-->
                               <div class="item">
@@ -185,28 +196,33 @@
                   </aside><!--//section-->
               </div><!--//secondary-->
           </div><!--//row-->
-        <div class="primary col-lg-14">
-            <section class="about section">
+        <div class="row">
+          <div class="primary col-lg-12">
+              <section class="about section">
                 <div class="section-inner">
-                    <h2 class="heading">About Me</h2>
-                    <div class="content">
-                        <p>Hi, I am Daniel. I am from Bolzano, a small town in the Italian Alps. Bolzano province is bilingual and a melting pot between Italian and Austrian culture due to its history.  My father is British, so one could say am a half-British, German-speaking Italian, moulded by a multicultural and multilingual environment. </p>
-                        <p>In the professional and academic world I describe myself as a passionate geo-information researcher, developer and tech lover. With an environmental sciences and geographical technology background, my main interests lie in nature, environmental monitoring, sensors, the Internet of Things and interoperability and geospatial web development. </p>
-                    </div><!--//content-->
+                    <h2 class="heading">Mapping me</h2>
+                    <div class="row">
+                      <div class="col-10">
+                        <div style="width: 100%; height: 600px; background: grey" id="map"></div><!--//content-->
+                      </div>
+                      <div class="col-2 flex-column my-auto">
+                          <button type="button" class="btn btn-info btn-block btn-circle">Travels</button>
+                          <br>
+                          <button type="button" class="btn btn-info btn-block btn-circle">Resident</button>
+                          <br>
+                          <button type="button" class="btn btn-info btn-block btn-circle">Academic</button>
+                          <br>
+                          <button type="button" class="btn btn-info btn-block btn-circle">Work</button>
+                          <br>
+                          <button type="button" class="btn btn-info btn-block btn-circle">Primary</button>
+                      </div>
+                    </div>
                 </div><!--//section-inner-->
-            </section><!--//section-->
+              </section><!--//section-->
+          </div>
         </div><!--//masonry-->
         <div class="row">
             <div class="primary col-lg-8 col-12">
-              <section class="about section">
-                  <div class="section-inner">
-                      <h2 class="heading">About Me</h2>
-                      <div class="content">
-                          <p>Hi, I am Daniel. I am from Bolzano, a small town in the Italian Alps. Bolzano province is bilingual and a melting pot between Italian and Austrian culture due to its history.  My father is British, so one could say am a half-British, German-speaking Italian, moulded by a multicultural and multilingual environment. </p>
-                          <p>In the professional and academic world I describe myself as a passionate geo-information researcher, developer and tech lover. With an environmental sciences and geographical technology background, my main interests lie in nature, environmental monitoring, sensors, the Internet of Things and interoperability and geospatial web development. </p>
-                      </div><!--//content-->
-                  </div><!--//section-inner-->
-              </section><!--//section-->
                 <section class="projects section">
                     <div class="section-inner">
                         <h2 class="heading">Other Projects</h2>
@@ -467,12 +483,16 @@
     <script type="text/javascript" src="assets/plugins/popper.min.js"></script>
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script>
+    <!-- Leaflet -->
+    <script type="text/javascript" src="assets/plugins/leaflet/leaflet.js"></script>
     <!-- github calendar plugin -->
     <script type="text/javascript" src="assets/plugins/github-calendar/dist/github-calendar.min.js"></script>
     <!-- github activity plugin -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.1/mustache.min.js"></script>
     <script type="text/javascript" src="assets/plugins/github-activity/github-activity-0.1.5.min.js"></script>
     <!-- custom js -->
+    <script type="text/javascript" src="aroundTheWorld.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

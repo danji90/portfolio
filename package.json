@@ -18,7 +18,6 @@
   "homepage": "https://github.com/danji90/portfolio#readme",
   "dependencies": {
     "bootstrap": "^4.1.3",
-    "browserify": "^16.2.3",
     "github-activity": "^1.0.4",
     "github-calendar": "^1.2.4",
     "jquery": "^3.3.1",

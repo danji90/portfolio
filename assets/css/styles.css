@@ -180,6 +180,10 @@ a.dotted-link:hover {
 }
 
 /* ======= Sections======= */
+#contentSection{
+  background-color: black
+}
+
 .sections-wrapper {
   padding-top: 60px;
   padding-bottom: 60px;

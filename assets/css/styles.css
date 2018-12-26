@@ -676,9 +676,19 @@ a.dotted-link:hover {
   .project-image {
     margin-bottom: 15px;
   }
-  figure{
+  /* figure{
     display: block;
     margin: 0 auto;
+  } */
+  .map .center{
+    display: block;
+    justify-content: center;
+    /*align-items: center; */
+  }
+  .map .btn {
+    /* margin-top: 30px; */
+    justify-content: center;
+    width: 100%
   }
 }
 
@@ -711,10 +721,25 @@ background: #00000061;
 z-index: 999;
 }
 
-.center {
-  display: flex;
+/* .center {
+  display: space-around;
   justify-content: center;
   align-items: center;
+} */
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.flex-container .btn{
+  padding: 5px;
+  margin: 5px;
+}
+
+.center {
+  justify-content: center;
 }
 
 #mapLegend{

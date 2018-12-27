@@ -22,6 +22,11 @@ jQuery(document).ready(function($) {
     /* Bootstrap Tooltip for Skillset */
     $('.level-label').tooltip();
 
+    /* Toggle button color shift */
+    $("button").click(function(){
+      $("button").removeClass("active");
+      $(this).addClass("active");
+    });
 
     /* jQuery RSS - https://github.com/sdepold/jquery-rss */
 
@@ -65,6 +70,9 @@ jQuery(document).ready(function($) {
 
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
     GitHubActivity.feed({ username: "danji90", selector: "#ghfeed" });
+
+
+    ///////////////////////Map object + Features/////////////////////////
 
     ////Leaflet////
 
@@ -114,8 +122,6 @@ jQuery(document).ready(function($) {
       maxNativeZoom: 18
     });
 
-    ///////////////////////Map object + Features/////////////////////////
-
     // Main map object
     var map = L.map('map', {
       center: [40, -20],
@@ -156,8 +162,12 @@ jQuery(document).ready(function($) {
       "Imagery": satellite
     };
 
-    for (i=0;i<places.features.length; i++){
-      L.geoJSON(places.features[i]).addTo(map);
+    if ($("#eduBtn").hasClass("active")){
+      for (i=0;i<education.features.length; i++){
+        L.geoJSON(education.features[i]).addTo(map);
+      }
     }
+
+
 
 });

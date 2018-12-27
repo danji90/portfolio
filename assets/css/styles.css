@@ -746,3 +746,14 @@ z-index: 999;
   margin: 25px;
   max-width: 100%
 }
+
+.btn-group-toggle .btn {
+  padding: 10px;
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.active{
+  background-color: green !important;
+}

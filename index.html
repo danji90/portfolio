@@ -197,12 +197,23 @@
                 <div class="section-inner">
                     <h2 class="heading">Mapping me</h2>
                     <div style="width: 100%; height: 600px; background: grey" id="map"></div><!--//content-->
-                    <div class="flex-container center" id="mapLegend">
-                      <li class="btn btn-info">Travels</li>
-                      <li class="btn btn-info">Resident</li>
-                      <li class="btn btn-info">Academic</li>
-                      <!-- <button type="button" class="btn btn-info">Work</button>
-                      <button type="button" class="btn btn-info">Primary</button> -->
+                    <!-- <div class="flex-container center" id="mapLegend">
+                      <button type="button" class="btn btn-info">Education</button>
+                      <button type="button" class="btn btn-info">Work</button>
+                      <button type="button" class="btn btn-info">Other</button>
+                      <button type="button" class="btn btn-info">Work</button>
+                      <button type="button" class="btn btn-info">Primary</button>
+                    </div> -->
+                    <div class="flex-container center btn-group-toggle" data-toggle="buttons" id="mapLegend">
+                      <label class="btn btn-danger btn-lg active" id="eduBtn">
+                        <input type="checkbox" checked autocomplete="off">Education
+                      </label>
+                      <label class="btn btn-danger btn-lg" id="workBtn">
+                        <input type="checkbox" autocomplete="off">Work
+                      </label>
+                      <label class="btn btn-danger btn-lg" id="otherBtn">
+                        <input type="checkbox" autocomplete="off">Other
+                      </label>
                     </div>
                 </div><!--//section-inner-->
               </section><!--//section-->
@@ -433,7 +444,7 @@
     <script type="text/javascript" src="node_modules/mustache/mustache.min.js"></script>
     <script type="text/javascript" src="assets/plugins/github-activity/github-activity-0.1.5.min.js"></script>
     <!-- custom js -->
-    <script type="text/javascript" src="aroundTheWorld.js"></script>
+    <script type="text/javascript" src="mapping.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

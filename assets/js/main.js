@@ -154,7 +154,7 @@ jQuery(document).ready(function($) {
          $('#map').removeClass('map-scroll');
       })
 
-    // Map markers & layers
+    // Map markers & legend
 
     var baseLayers = {
       "Streets": streets,
@@ -162,7 +162,7 @@ jQuery(document).ready(function($) {
       "Imagery": satellite
     };
 
-    if ($("#eduBtn").hasClass("active")){
+    if ($("#eduBtn").attr('checked',true)){
       for (i=0;i<education.features.length; i++){
         L.geoJSON(education.features[i]).addTo(map);
       }

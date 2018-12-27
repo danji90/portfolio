@@ -154,7 +154,57 @@ jQuery(document).ready(function($) {
          $('#map').removeClass('map-scroll');
       })
 
-    // Map markers & legend
+
+    //// Map markers & legend
+
+    var eduLayer = L.markerClusterGroup({
+      name: "Education"
+    });
+
+    var eduMarkers =  L.geoJSON(education, {
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('<h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+        }
+      })
+    eduLayer.addLayer(eduMarkers)
+    eduLayer.addTo(map)
+
+    var workLayer = L.markerClusterGroup({
+      name: "Work"
+    });
+    for (i=0;i<work.features.length; i++){
+      L.geoJSON(work.features[i]).addTo(workLayer);
+    }
+
+    // var otherMarkers = L.markerClusterGroup({
+    //   name: "Other"
+    // });
+    // for (i=0;i<other.features.length; i++){
+    //   L.geoJSON(other.features[i]).addTo(otherMarkers);
+    // }
+
+    // $("#eduBtn").change(function(){
+    //   if(this.checked){
+    //     console.log("checked")
+    //     eduMarkers.addTo(map);
+    //   }else{
+    //     console.log("unchecked")
+    //     map.removeLayer(eduMarkers)
+    //   }
+    // })
+    //
+    // $("#workBtn").change(function(){
+    //   if(this.checked){
+    //     workMarkers.addTo(map);
+    //   }else{
+    //     map.removeLayer(workMarkers)
+    //   }
+    // })
+
+    var overlays = {
+      "Education": eduLayer,
+      "Work": workLayer
+    }
 
     var baseLayers = {
       "Streets": streets,
@@ -162,12 +212,8 @@ jQuery(document).ready(function($) {
       "Imagery": satellite
     };
 
-    if ($("#eduBtn").attr('checked',true)){
-      for (i=0;i<education.features.length; i++){
-        L.geoJSON(education.features[i]).addTo(map);
-      }
-    }
-
+    L.control.layers(baseLayers, overlays, {
+      }).addTo(map);
 
 
 });

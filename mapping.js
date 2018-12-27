@@ -9,7 +9,7 @@ var education = {
         "country": "United Kingdom",
         "facility": "Bournemouth - International Teaching and Training Centre (ITTC)",
         "link": "https://ittc.co.uk/bournemouth/",
-        "certificate": "Certificate in English Language Teaching to Adults (CELTA) - Pass Grade A",
+        "title": "Certificate in English Language Teaching to Adults (CELTA)",
         "timestamp": "July 2015",
         "description": "Cambridge assessed teacher training for teaching English as a foreign language, obtained CELTA qualification for student-centered English teaching"
       },
@@ -29,7 +29,7 @@ var education = {
         "country": "Mexico",
         "facility": "Instituto Tecnológico y de Estudios Superiores de Occidente (ITESO)",
         "link": "https://www.iteso.mx/",
-        "certificate": "International Student Exchange ",
+        "title": "International Student Exchange ",
         "timestamp": "August 2013 - June 2014",
         "description": "International exchange year with the Joint Study programme, attended courses in GIS, Dynamic systems and Environmental Systems Simulation, Climatology, Environmental Management, Challenges in Golbalisation, Spanish B2-C1"
       },
@@ -49,7 +49,7 @@ var education = {
         "country": "Austria",
         "facility": "Karl Franzens Universität Graz",
         "link": "https://www.uni-graz.at/en/",
-        "certificate": "Bachelor of Science - Environmental Systems Science (focus Geography)",
+        "title": "Bachelor of Science - Environmental Systems Science (focus Geography)",
         "timestamp": "October 2011 - February 2016",
         "description": "Subjects and skills acquired: Environmental Sciences, Systems Sciences, Mathematics and Statistics, Ecology, Sustainable Development, Interdisciplinary Research, Geoinformatics, Geographical Technologies, GIS, Remote Sensing, Cartography, Physical Geography, Human Geography, Integrative Geography"
       },
@@ -69,7 +69,7 @@ var education = {
         "country": "Germany",
         "facility": "Universität Münster - Institut for Geoinformatics",
         "link": "https://www.uni-muenster.de/Geoinformatics/en/",
-        "certificate": "Master of Science - Geospatial Technologies",
+        "title": "Master of Science - Geospatial Technologies",
         "timestamp": "September 2017 - March 2019",
         "description": "Subjects and skills acquired: Programming, Spatial Databases, Software Engineering, Applied Mathematics and Statistics, Spatial Analysis, Spatial Data Visualisation, Web and Mobile GIS development, Remote sensing, GIS Servers, Spatial Data Infrastructures, Python in GIS, Location-Based Services, Unmanned Aerial Systems, Usage-Centered Design of GIS applications, Advanced Research Methods and Skills, Spatial Data Analysis in R, SenseBox, Project Management"
       },
@@ -89,7 +89,7 @@ var education = {
         "country": "Spain",
         "facility": "Universitat Jaume I",
         "link": "https://www.uji.es/",
-        "certificate": "Master of Science - Geospatial Technologies",
+        "title": "Master of Science - Geospatial Technologies",
         "timestamp": "September 2017 - March 2019",
         "description": "Subjects and skills acquired: Programming, Spatial Databases, Software Engineering, Applied Mathematics and Statistics, Spatial Analysis, Spatial Data Visualisation, Web and Mobile GIS development, Remote sensing, GIS Servers, Spatial Data Infrastructures"
       },
@@ -109,7 +109,7 @@ var education = {
         "country": "Portugal",
         "facility": "Universidade Nova de Lisboa",
         "link": "http://www.novaims.unl.pt/",
-        "certificate": "Master of Science - Geospatial Technologies",
+        "title": "Master of Science - Geospatial Technologies",
         "timestamp": "September 2017 - March 2019",
         "description": "GeoMundus 2018 Conference"
       },
@@ -118,6 +118,72 @@ var education = {
         "coordinates": [
           -9.161009788513184,
           38.73349804404035
+        ]
+      }
+    }
+  ]
+}
+
+var work = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Work",
+        "city": "Bolzano",
+        "country": "Italy",
+        "facility": "EURAC Research - Institute for Earth Observation",
+        "link": "http://www.eurac.edu/en/research/mountains/remsen/Pages/default.aspx",
+        "title": "",
+        "timestamp": "March 2016 - July 2017",
+        "description": "Researcher in Technology for Environmental Monitoring, OGC Sensor Web Standards and geospatial data management and processing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.347589492797852,
+          46.494138066211015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Work",
+        "city": "Bolzano",
+        "country": "Italy",
+        "facility": "AlphaBeta Piccadilly Language School",
+        "link": "https://www.alphabeta.it/en/welcome-1.html",
+        "title": "",
+        "timestamp": "July 2010, July 2011, July 2016, March 2016 - June 2017",
+        "description": "Language Coordinator for English summer camps for 8-12 year-olds, teaching English as a foreign language to adults at A1, A2 & B1 levels"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.349284648895264,
+          46.50142205987209
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Work",
+        "city": "Guadalajara",
+        "country": "Mexico",
+        "facility": "Universidad UNISITE",
+        "link": "https://www.unisite.mx/l",
+        "title": "",
+        "timestamp": "November 2013 - May 2014",
+        "description": "Teaching English as a foreign language to adults at A1, A2 & B1 levels"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.35439682006836,
+          20.676545223045977
         ]
       }
     }

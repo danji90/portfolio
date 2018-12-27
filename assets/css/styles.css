@@ -690,6 +690,10 @@ a.dotted-link:hover {
     justify-content: center;
     width: 100%
   }
+  #mapContainer{
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (min-width: 1400px) {

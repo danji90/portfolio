@@ -157,7 +157,7 @@ var work = {
         "link": "https://www.alphabeta.it/en/welcome-1.html",
         "title": "",
         "timestamp": "July 2010, July 2011, July 2016, March 2016 - June 2017",
-        "description": "Language Coordinator for English summer camps for 8-12 year-olds, teaching English as a foreign language to adults at A1, A2 & B1 levels"
+        "description": "Language Coordinator for English summer camps for 8-12 year-olds, teaching English as a foreign language to adults at A2 & B1 levels"
       },
       "geometry": {
         "type": "Point",
@@ -177,7 +177,7 @@ var work = {
         "link": "https://www.unisite.mx/l",
         "title": "",
         "timestamp": "November 2013 - May 2014",
-        "description": "Teaching English as a foreign language to adults at A1, A2 & B1 levels"
+        "description": "Teaching English as a foreign language to adults at A1 & A2 levels"
       },
       "geometry": {
         "type": "Point",

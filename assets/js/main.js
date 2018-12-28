@@ -158,10 +158,28 @@ jQuery(document).ready(function($) {
     //// Map markers & legend
 
     var eduLayer = L.markerClusterGroup({
-      name: "Education"
+      spiderfyOnMaxZoom: false,
+	    showCoverageOnHover: false,
+      name: "Education",
+      iconCreateFunction: function(cluster) {
+          var childCount = cluster.getChildCount();
+          return L.divIcon({
+          className: 'markermultiicon',
+          html: "<i class='fas fa-graduation-cap'></i>"
+        })}
     });
-
     var eduMarkers =  L.geoJSON(education, {
+        pointToLayer: function(feature, latlng) {
+            var smallIcon = L.Icon({
+                options: {
+                    iconSize: [27, 27],
+                    iconAnchor: [13, 27],
+                    popupAnchor:  [1, -24],
+                    html: "<i class='fas fa-graduation-cap'></i>"
+                }
+            });
+            return L.marker(latlng, {icon: smallIcon});
+        },
         onEachFeature: function (feature, layer) {
           layer.bindPopup('<h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
         }
@@ -172,9 +190,12 @@ jQuery(document).ready(function($) {
     var workLayer = L.markerClusterGroup({
       name: "Work"
     });
-    for (i=0;i<work.features.length; i++){
-      L.geoJSON(work.features[i]).addTo(workLayer);
-    }
+    var workMarkers =  L.geoJSON(work, {
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('<h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+        }
+      })
+    workLayer.addLayer(workMarkers)
 
     // var otherMarkers = L.markerClusterGroup({
     //   name: "Other"

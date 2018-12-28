@@ -157,28 +157,26 @@ jQuery(document).ready(function($) {
 
     //// Map markers & legend
 
+    //Education
+
     var eduLayer = L.markerClusterGroup({
+      name: "Education",
       spiderfyOnMaxZoom: false,
 	    showCoverageOnHover: false,
-      name: "Education",
       iconCreateFunction: function(cluster) {
           var childCount = cluster.getChildCount();
           return L.divIcon({
           className: 'markermultiicon',
-          html: "<i class='fas fa-graduation-cap'></i>"
+          html: "<i class='fa fa-graduation-cap fa-2x'></i>"
         })}
     });
     var eduMarkers =  L.geoJSON(education, {
         pointToLayer: function(feature, latlng) {
-            var smallIcon = L.Icon({
-                options: {
-                    iconSize: [27, 27],
-                    iconAnchor: [13, 27],
-                    popupAnchor:  [1, -24],
-                    html: "<i class='fas fa-graduation-cap'></i>"
-                }
+          var icon = L.divIcon({
+            className: 'markermultiicon',
+            html: "<i class='fa fa-graduation-cap fa-2x'></i>"
             });
-            return L.marker(latlng, {icon: smallIcon});
+          return L.marker(latlng, {icon: icon});
         },
         onEachFeature: function (feature, layer) {
           layer.bindPopup('<h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
@@ -186,16 +184,40 @@ jQuery(document).ready(function($) {
       })
     eduLayer.addLayer(eduMarkers)
     eduLayer.addTo(map)
+    eduLayer.on('add', function(){
+      map.fitBounds(eduLayer.getBounds());
+    })
+
+    // Work
 
     var workLayer = L.markerClusterGroup({
-      name: "Work"
+      name: "Work",
+      spiderfyOnMaxZoom: false,
+	    showCoverageOnHover: false,
+      iconCreateFunction: function(cluster) {
+          var childCount = cluster.getChildCount();
+          return L.divIcon({
+          className: 'markermultiicon',
+          html: "<i class='fas fa-briefcase fa-2x'></i>"
+        })}
     });
     var workMarkers =  L.geoJSON(work, {
+        pointToLayer: function(feature, latlng) {
+          var icon = L.divIcon({
+            className: 'markermultiicon',
+            html: "<i class='fas fa-briefcase fa-2x'></i>"
+            });
+          return L.marker(latlng, {icon: icon});
+        },
         onEachFeature: function (feature, layer) {
           layer.bindPopup('<h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
         }
       })
     workLayer.addLayer(workMarkers)
+
+    workLayer.on('add', function(){
+      map.fitBounds(workLayer.getBounds());
+    })
 
     // var otherMarkers = L.markerClusterGroup({
     //   name: "Other"
@@ -234,6 +256,7 @@ jQuery(document).ready(function($) {
     };
 
     L.control.layers(baseLayers, overlays, {
+      autoZIndex: true
       }).addTo(map);
 
 

@@ -67,11 +67,11 @@ var education = {
         "type": "education",
         "city": "Münster",
         "country": "Germany",
-        "facility": "Universität Münster - Institut for Geoinformatics",
+        "facility": "University of Münster - Institute for Geoinformatics",
         "link": "https://www.uni-muenster.de/Geoinformatics/en/",
         "title": "Master of Science - Geospatial Technologies",
         "timestamp": "September 2017 - March 2019",
-        "description": "Subjects and skills acquired: Programming, Spatial Databases, Software Engineering, Applied Mathematics and Statistics, Spatial Analysis, Spatial Data Visualisation, Web and Mobile GIS development, Remote sensing, GIS Servers, Spatial Data Infrastructures, Python in GIS, Location-Based Services, Unmanned Aerial Systems, Usage-Centered Design of GIS applications, Advanced Research Methods and Skills, Spatial Data Analysis in R, SenseBox, Project Management"
+        "description": "Attendance of second Master semester, attended courses such as Python in GIS, Location-Based Services, Unmanned Aerial Systems, Usage-Centered Design of GIS applications, Advanced Research Methods and Skills, Spatial Data Analysis in R, SenseBox, Project Management"
       },
       "geometry": {
         "type": "Point",
@@ -91,7 +91,7 @@ var education = {
         "link": "https://www.uji.es/",
         "title": "Master of Science - Geospatial Technologies",
         "timestamp": "September 2017 - March 2019",
-        "description": "Subjects and skills acquired: Programming, Spatial Databases, Software Engineering, Applied Mathematics and Statistics, Spatial Analysis, Spatial Data Visualisation, Web and Mobile GIS development, Remote sensing, GIS Servers, Spatial Data Infrastructures"
+        "description": "Attendance of first and third Master semesters, writing of Master thesis, attended courses such as Programming, Spatial Databases, Software Engineering, Applied Mathematics and Statistics, Spatial Analysis, Spatial Data Visualisation, Web and Mobile GIS development, Remote sensing, GIS Servers, Spatial Data Infrastructures"
       },
       "geometry": {
         "type": "Point",

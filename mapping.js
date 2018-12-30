@@ -51,7 +51,7 @@ var education = {
         "link": "https://www.uni-graz.at/en/",
         "title": "Bachelor of Science - Environmental Systems Science (focus Geography)",
         "timestamp": "October 2011 - February 2016",
-        "description": "Subjects and skills acquired: Environmental Sciences, Systems Sciences, Mathematics and Statistics, Ecology, Sustainable Development, Interdisciplinary Research, Geoinformatics, Geographical Technologies, GIS, Remote Sensing, Cartography, Physical Geography, Human Geography, Integrative Geography"
+        "description": "Subjects and skills acquired: Environmental Sciences, Systems Sciences, Mathematics and Statistics, Ecology, Sustainable Development, Interdisciplinary Research, Geoinformatics, Geographical Technologies, GIS, Remote Sensing, Cartography, Physical Geography, Human Geography, Integrative Geography, Spanish B2"
       },
       "geometry": {
         "type": "Point",
@@ -130,12 +130,12 @@ var work = {
     {
       "type": "Feature",
       "properties": {
-        "type": "Work",
+        "type": "work",
         "city": "Bolzano",
         "country": "Italy",
         "facility": "EURAC Research - Institute for Earth Observation",
         "link": "http://www.eurac.edu/en/research/mountains/remsen/Pages/default.aspx",
-        "title": "",
+        "title": "GI Researcher & Developer",
         "timestamp": "March 2016 - July 2017",
         "description": "Researcher in Technology for Environmental Monitoring, OGC Sensor Web Standards and geospatial data management and processing"
       },
@@ -150,12 +150,32 @@ var work = {
     {
       "type": "Feature",
       "properties": {
-        "type": "Work",
+        "type": "work",
+        "city": "Graz",
+        "country": "Austria",
+        "facility": "University of Graz - Institute for Geography",
+        "link": "https://geographie.uni-graz.at/en/",
+        "title": "Technical English for Geographers - Teaching Assistant",
+        "timestamp": "March 2015 - July 2015",
+        "description": "Teaching geographical terminology to geography students"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.448729991912842,
+          47.07899962398171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "work",
         "city": "Bolzano",
         "country": "Italy",
         "facility": "AlphaBeta Piccadilly Language School",
         "link": "https://www.alphabeta.it/en/welcome-1.html",
-        "title": "",
+        "title": "English Teacher",
         "timestamp": "July 2010, July 2011, July 2016, March 2016 - June 2017",
         "description": "Language Coordinator for English summer camps for 8-12 year-olds, teaching English as a foreign language to adults at A2 & B1 levels"
       },
@@ -170,12 +190,12 @@ var work = {
     {
       "type": "Feature",
       "properties": {
-        "type": "Work",
+        "type": "work",
         "city": "Guadalajara",
         "country": "Mexico",
         "facility": "Universidad UNISITE",
         "link": "https://www.unisite.mx/l",
-        "title": "",
+        "title": "English Teacher",
         "timestamp": "November 2013 - May 2014",
         "description": "Teaching English as a foreign language to adults at A1 & A2 levels"
       },
@@ -184,6 +204,26 @@ var work = {
         "coordinates": [
           -103.35439682006836,
           20.676545223045977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "work",
+        "city": "Cabuya",
+        "country": "Costa Rica",
+        "facility": "Work and Travel",
+        "link": "https://globalworkandtravel.com/",
+        "title": "Volunteer",
+        "timestamp": "February 2019",
+        "description": "One month of voluntary work in Cabuya village, teaching at school, help with maintenance of village infrastructure, aid in animal rescue centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.0914716720581,
+          9.596476164457002
         ]
       }
     }

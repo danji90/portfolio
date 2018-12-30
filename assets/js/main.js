@@ -244,6 +244,8 @@ jQuery(document).ready(function($) {
     //   }
     // })
 
+    var remWork = map.on('overlayremove', function(a) { map.removeLayer(workLayer)});
+
     var overlays = {
       "Education": eduLayer,
       "Work": workLayer
@@ -254,6 +256,9 @@ jQuery(document).ready(function($) {
       "Gray": dark,
       "Imagery": satellite
     };
+
+    var remWork = map.on('overlayremove', function(a) { map.removeLayer(workLayer)});
+    map.on('overlayadd', function(a) { console.log("wanker")});
 
     L.control.layers(baseLayers, overlays, {
       autoZIndex: true

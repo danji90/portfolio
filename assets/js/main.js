@@ -159,106 +159,106 @@ jQuery(document).ready(function($) {
 
     //Education
 
-    var eduLayer = L.markerClusterGroup({
-      name: "Education",
-      spiderfyOnMaxZoom: false,
-	    showCoverageOnHover: false,
-      iconCreateFunction: function(cluster) {
-          var childCount = cluster.getChildCount();
-          return L.divIcon({
-          className: 'markermultiicon',
-          html: "<i class='fa fa-graduation-cap fa-2x'></i>"
-        })}
-    });
+    var mcg = L.markerClusterGroup({
+        spiderfyOnMaxZoom: false,
+        showCoverageOnHover: false
+    }).addTo(map);
+
+    var eduLayer = L.featureGroup.subGroup(mcg);
     var eduMarkers =  L.geoJSON(education, {
         pointToLayer: function(feature, latlng) {
           var icon = L.divIcon({
-            className: 'markermultiicon',
-            html: "<i class='fa fa-graduation-cap fa-2x'></i>"
+            className: 'mapIcon',
+            html: feature.properties.icon
             });
           return L.marker(latlng, {icon: icon});
         },
         onEachFeature: function (feature, layer) {
-          layer.bindPopup('<h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+          layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
         }
       })
     eduLayer.addLayer(eduMarkers)
     eduLayer.addTo(map)
     eduLayer.on('add', function(){
-      map.fitBounds(eduLayer.getBounds());
+      map.fitBounds(mcg.getBounds());
     })
 
     // Work
 
-    var workLayer = L.markerClusterGroup({
-      name: "Work",
-      spiderfyOnMaxZoom: false,
-	    showCoverageOnHover: false,
-      iconCreateFunction: function(cluster) {
-          var childCount = cluster.getChildCount();
-          return L.divIcon({
-          className: 'markermultiicon',
-          html: "<i class='fas fa-briefcase fa-2x'></i>"
-        })}
-    });
+    var workLayer = L.featureGroup.subGroup(mcg);
     var workMarkers =  L.geoJSON(work, {
         pointToLayer: function(feature, latlng) {
           var icon = L.divIcon({
-            className: 'markermultiicon',
-            html: "<i class='fas fa-briefcase fa-2x'></i>"
+            className: 'mapIcon',
+            html: feature.properties.icon
             });
           return L.marker(latlng, {icon: icon});
         },
         onEachFeature: function (feature, layer) {
-          layer.bindPopup('<h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+          layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>' + feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
         }
       })
     workLayer.addLayer(workMarkers)
-
+    workLayer.addTo(map)
     workLayer.on('add', function(){
-      map.fitBounds(workLayer.getBounds());
+      map.fitBounds(mcg.getBounds());
     })
 
-    // var otherMarkers = L.markerClusterGroup({
-    //   name: "Other"
-    // });
-    // for (i=0;i<other.features.length; i++){
-    //   L.geoJSON(other.features[i]).addTo(otherMarkers);
-    // }
 
-    // $("#eduBtn").change(function(){
-    //   if(this.checked){
-    //     console.log("checked")
-    //     eduMarkers.addTo(map);
-    //   }else{
-    //     console.log("unchecked")
-    //     map.removeLayer(eduMarkers)
-    //   }
-    // })
-    //
-    // $("#workBtn").change(function(){
-    //   if(this.checked){
-    //     workMarkers.addTo(map);
-    //   }else{
-    //     map.removeLayer(workMarkers)
-    //   }
-    // })
+    var residentLayer = L.featureGroup.subGroup(mcg);
+    var residentMarkers =  L.geoJSON(residence, {
+        pointToLayer: function(feature, latlng) {
+          var icon = L.divIcon({
+            className: 'mapIcon',
+            html: feature.properties.icon
+            });
+          return L.marker(latlng, {icon: icon});
+        },
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p>' + feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+        }
+      })
+    residentLayer.addLayer(residentMarkers)
+    residentLayer.addTo(map)
+    residentLayer.on('add', function(){
+      map.fitBounds(mcg.getBounds());
+    })
+
+    var countriesLayer = L.featureGroup();
+    var coutryPolygons =  L.geoJSON(countries, {
+        style: function (feature) {
+      		return {
+            color: "#FF6347"
+          };
+      	},
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('<p align="center"><strong>'+ feature.properties.sovereignt + '</strong><p>');
+        }
+      })
+    countriesLayer.addLayer(coutryPolygons)
+    countriesLayer.addTo(map)
+    countriesLayer.on('add', function(){
+      map.fitBounds(countriesLayer.getBounds());
+    })
 
     var remWork = map.on('overlayremove', function(a) { map.removeLayer(workLayer)});
 
     var overlays = {
       "Education": eduLayer,
-      "Work": workLayer
+      "Work": workLayer,
+      "Resident": residentLayer,
+      "Countries explored": countriesLayer
     }
 
     var baseLayers = {
-      "Streets": streets,
+      "Topographic": streets,
       "Gray": dark,
       "Imagery": satellite
     };
 
-    var remWork = map.on('overlayremove', function(a) { map.removeLayer(workLayer)});
-    map.on('overlayadd', function(a) { console.log("wanker")});
+    // map.on('layeradd', function(e) {
+    //   map.fitBounds(mcg.getBounds());
+    // })
 
     L.control.layers(baseLayers, overlays, {
       autoZIndex: true

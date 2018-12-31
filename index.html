@@ -48,33 +48,64 @@
 
 </head>
 
-<body>
+<body id="home">
     <!-- ******HEADER****** -->
-
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <!-- <a class="navbar-brand" href="#">Fixed navbar</a> -->
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto custom-center" id="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#xp">Work Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#mapSec">Life Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+          </ul>
+      </div>
+        <!-- <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </nav>
+    <br><br>
     <header class="header">
-        <div class="container clearfix">
-            <img class="profile-image img-fluid float-left" src="assets/images/circleFolio.png" alt="Daniel Marsh-Hunn" />
-            <div class="profile-content float-left">
-                <h1 class="name">Daniel Marsh-Hunn</h1>
-                <h2 class="desc">GI researcher and web developer</h2>
-                <ul class="social list-inline">
-                    <!--<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>-->
-                    <li class="list-inline-item"><a title="Open Linked-In" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li class="list-inline-item"><a title="Open Github" href="https://github.com/danji90" target="_blank"><i class="fab fa-github-alt"></i></a></li>
-                    <li class="list-inline-item"><a title="Download CV" href="assets/documents/MarshHunnDaniel_EuroCV.pdf" download><i class="far fa-file-pdf"></i></a></li>
-                    <!-- <li class="list-inline-item last-item"><a href="#"><i class="fab fa-codepen"></i></a></li> -->
-                </ul>
-            </div><!--//profile-->
-            <br>
-            <a class="btn btn-cta-primary float-right" title="Write e-mail" href="mailto:danji_ma90@hotmail.com" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a>
-        </div><!--//container-->
+      <div class="container clearfix">
+          <img class="profile-image img-fluid float-left" src="assets/images/circleFolio.png" alt="Daniel Marsh-Hunn" />
+          <div class="profile-content float-left">
+              <h1 class="name">Daniel Marsh-Hunn</h1>
+              <h2 class="desc">GI researcher and web developer</h2>
+              <ul class="social list-inline">
+                  <!--<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>-->
+                  <li class="list-inline-item"><a title="Open Linked-In" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                  <li class="list-inline-item"><a title="Open Github" href="https://github.com/danji90" target="_blank"><i class="fab fa-github-alt"></i></a></li>
+                  <li class="list-inline-item"><a title="Download CV" href="assets/documents/MarshHunnDaniel_EuroCV.pdf" download><i class="far fa-file-pdf"></i></a></li>
+                  <!-- <li class="list-inline-item last-item"><a href="#"><i class="fab fa-codepen"></i></a></li> -->
+              </ul>
+          </div><!--//profile-->
+          <br>
+          <a class="btn btn-cta-primary float-right" title="Write e-mail" href="mailto:danji_ma90@hotmail.com" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a>
+      </div><!--//container-->
     </header><!--//header-->
 
     <div class="container sections-wrapper">
           <div class="row">
               <div class="primary col-lg-8 col-12">
-                  <section class="about section">
+                  <section class="about section" id="about">
                       <div class="section-inner">
                           <h2 class="heading">About Me</h2>
                           <div class="content">
@@ -105,7 +136,7 @@
                         </div>//content-->
                       </div><!--//section-inner-->
                   </section><!--//section-->
-                  <section class="experience section">
+                  <section class="experience section" id="xp">
                       <div class="section-inner">
                           <h2 class="heading">Work Experience</h2>
                           <div class="content">
@@ -195,17 +226,18 @@
                                   <h3 class="title"><i class="fas fa-graduation-cap"></i> MSc Geospatial Technologies</h3>
                                   <h4 class="university">Erasmus Mundus Joint Master Degree <span class="year">(2017-2019)</span></h4>
                                   <h4 class="university">Universität Münster - Universitat Jaume I - Universidade Nova de Lisboa </h4>
+                                  <h4 class="university">Erasmus Mundus Scholarship Holder </h4>
                               </div><!--//item-->
                               <div class="item">
                                   <h3 class="title"><i class="fas fa-graduation-cap"></i> BSc Environmental Systems Sciences - Focus on Geography</h3>
                                   <h4 class="university">Universität Graz <span class="year">(2011-2016)</span></h4>
                               </div><!--//item-->
                               <div class="item">
-                                  <h3 class="title"><i class="fas fa-graduation-cap"></i>Certificate in English Language Teaching to Adults (CELTA)</h3>
+                                  <h3 class="title"><i class="fas fa-graduation-cap"></i> Certificate in English Language Teaching to Adults (CELTA)</h3>
                                   <h4 class="university">ITTC Bournemouth <span class="year">(July 2015)</span></h4>
                               </div><!--//item-->
                               <div class="item">
-                                  <h3 class="title"><i class="fas fa-graduation-cap"></i>Certificate of Bilingualism (Italian-German): Patentino A</h3>
+                                  <h3 class="title"><i class="fas fa-graduation-cap"></i> Certificate of Bilingualism (Italian-German): Patentino A</h3>
                               </div><!--//item-->
                           </div><!--//content-->
                       </div><!--//section-inner-->
@@ -215,7 +247,7 @@
           </div><!--//row-->
         <div class="row">
           <div class="primary col-lg-12">
-              <section class="section">
+              <section class="section" id="mapSec">
                 <div class="section-inner" id="mapContainer">
                     <h2 style="padding-left: 30px" class="heading">Life map</h2>
                     <div style="width: 100%; height: 600px; background: grey" id="map"></div><!--//content-->
@@ -243,7 +275,7 @@
         </div><!--//masonry-->
         <div class="row">
             <div class="primary col-lg-8 col-12">
-                <section class="projects section">
+                <section class="projects section" id="projects">
                     <div class="section-inner">
                         <h2 class="heading">Other Projects</h2>
                         <div class="content">

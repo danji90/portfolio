@@ -23,10 +23,49 @@ jQuery(document).ready(function($) {
     $('.level-label').tooltip();
 
     /* Toggle button color shift */
-    $("button").click(function(){
-      $("button").removeClass("active");
-      $(this).addClass("active");
+    // $("button").click(function(){
+    //   $("button").removeClass("active");
+    //   $(this).addClass("active");
+    // });
+
+    /* Scroll animations */
+
+    $("#navHome").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#home").offset().top
+        }, 1000);
     });
+
+    $("#navAbout").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#about").offset().top
+        }, 1000);
+    });
+
+    $("#navXP").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#xp").offset().top
+        }, 1000);
+    });
+
+    $("#navMap").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#mapSec").offset().top
+        }, 1000);
+    });
+
+    $("#navProjects").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#projects").offset().top
+        }, 1000);
+    });
+
+    $("#navGithub").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#githubSec").offset().top
+        }, 1000);
+    });
+
 
     /* jQuery RSS - https://github.com/sdepold/jquery-rss */
 
@@ -236,7 +275,7 @@ jQuery(document).ready(function($) {
         }
       })
     countriesLayer.addLayer(coutryPolygons)
-    countriesLayer.addTo(map)
+    // countriesLayer.addTo(map)
     countriesLayer.on('add', function(){
       map.fitBounds(countriesLayer.getBounds());
     })

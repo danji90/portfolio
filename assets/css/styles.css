@@ -230,6 +230,11 @@ a.dotted-link:hover {
   margin-top: 0;
 }
 
+.latest .item .subtitle {
+  font-size: 16px;
+  margin-top: 0;
+}
+
 .latest .item .title .label {
   margin-left: 5px;
   font-size: 12px;

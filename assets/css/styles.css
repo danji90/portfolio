@@ -190,13 +190,18 @@ a.dotted-link:hover {
 }
 
 .section {
-  padding-top: 40px;
+  /* padding-top: 40px; */
   margin-bottom: 30px;
 }
 
 .section .section-inner {
   background: #fff;
   padding: 30px;
+  /* padding-top: 60px; */
+}
+
+.primary .section .section-inner {
+  padding-top: 60px;
 }
 
 .section .heading {
@@ -213,10 +218,10 @@ a.dotted-link:hover {
   top: -2px;
 }
 
-/* .section .content {
+.section .content p{
   text-align: justify;
   text-justify: inter-word;
-} */
+}
 
 
 /* About Section */

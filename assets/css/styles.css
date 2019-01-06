@@ -687,10 +687,11 @@ a.dotted-link:hover {
   .project-image {
     margin-bottom: 15px;
   }
-  /* figure{
-    display: block;
-    margin: 0 auto;
+
+  /* .about-image {
+    margin-bottom: 15px;
   } */
+
   .map .center{
     display: block;
     justify-content: center;

@@ -38,6 +38,15 @@ jQuery(document).ready(function($) {
     //   $(this).addClass("active");
     // });
 
+    $(function(){
+      var navMain = $(".navbar-collapse");
+
+      navMain.on("click", "a", null, function () {
+          navMain.collapse('hide');
+      });
+    });
+
+
     /* Scroll animations */
 
     $("#navHome").click(function() {
@@ -73,6 +82,18 @@ jQuery(document).ready(function($) {
     $("#navGithub").click(function() {
         $([document.documentElement, document.body]).animate({
             scrollTop: $("#githubSec").offset().top
+        }, 1000);
+    });
+
+    $("#navEdu").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#education").offset().top
+        }, 1000);
+    });
+
+    $("#navSkills").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#skills").offset().top
         }, 1000);
     });
 

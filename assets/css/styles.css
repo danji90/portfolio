@@ -190,7 +190,7 @@ a.dotted-link:hover {
 }
 
 .section {
-  /* padding-top: 40px; */
+  padding-top: 40px;
   margin-bottom: 30px;
 }
 
@@ -200,9 +200,9 @@ a.dotted-link:hover {
   /* padding-top: 60px; */
 }
 
-.primary .section .section-inner {
+/* .primary .section .section-inner {
   padding-top: 60px;
-}
+} */
 
 .section .heading {
   margin-top: 0;

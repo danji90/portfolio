@@ -38,12 +38,32 @@ jQuery(document).ready(function($) {
     //   $(this).addClass("active");
     // });
 
+    // $(function(){
+    //   var navMain = $(".navbar-collapse");
+    //
+    //   navMain.on("click", "a", null, function () {
+    //       navMain.collapse('hide');
+    //   });
+    // });
+
     $(function(){
       var navMain = $(".navbar-collapse");
+      var navLink = $(".nav-link");
 
-      navMain.on("click", "a", null, function () {
-          navMain.collapse('hide');
-      });
+      // if (navLink.hasClass("dropdown-toggle") == false){
+        navMain.on("click", function () {
+          if (!$(this).hasClass("dropdown-toggle")){
+            navMain.collapse('hide');
+            console.log("wank")
+          }
+
+        });
+      // }
+      // navMain.on("click", "a", null, function () {
+      //   navMain.collapse('hide');
+      // });
+
+
     });
 
 

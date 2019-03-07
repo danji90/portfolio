@@ -10,7 +10,9 @@ var education = {
         "facility": "Bournemouth - International Teaching and Training Centre (ITTC)",
         "link": "https://ittc.co.uk/bournemouth/",
         "title": "Certificate in English Language Teaching to Adults (CELTA)",
-        "timestamp": "July 2015",
+        "timestamp": [
+          ["2015-07-01T00:00:00.000Z", "2015-08-01T00:00:00.000Z"]
+        ],
         "icon": "<i class='fa fa-graduation-cap fa-2x'></i>",
         "description": "Cambridge assessed teacher training for teaching English as a foreign language, obtained CELTA qualification for student-centered English teaching"
       },
@@ -31,7 +33,9 @@ var education = {
         "facility": "Instituto Tecnológico y de Estudios Superiores de Occidente (ITESO)",
         "link": "https://www.iteso.mx/",
         "title": "International Student Exchange ",
-        "timestamp": "August 2013 - June 2014",
+        "timestamp": [
+          ["2013-08-08T00:00:00.000Z", "2014-06-04T00:00:00.000Z"]
+        ],
         "icon": "<i class='fa fa-graduation-cap fa-2x'></i>",
         "description": "International exchange year with the Joint Study programme, attended courses in GIS, Dynamic systems and Environmental Systems Simulation, Climatology, Environmental Management, Challenges in Golbalisation, Spanish B2-C1"
       },
@@ -52,7 +56,9 @@ var education = {
         "facility": "Karl Franzens Universität Graz",
         "link": "https://www.uni-graz.at/en/",
         "title": "Bachelor of Science - Environmental Systems Science (focus Geography)",
-        "timestamp": "October 2011 - February 2016",
+        "timestamp": [
+          ["2011-10-01T00:00:00.000Z", "2016-02-28T00:00:00.000Z"]
+        ],
         "icon": "<i class='fa fa-graduation-cap fa-2x'></i>",
         "description": "Subjects and skills acquired: Environmental Sciences, Systems Sciences, Mathematics and Statistics, Ecology, Sustainable Development, Interdisciplinary Research, Geoinformatics, Geographical Technologies, GIS, Remote Sensing, Cartography, Physical Geography, Human Geography, Integrative Geography, Spanish B2"
       },
@@ -73,7 +79,9 @@ var education = {
         "facility": "University of Münster - Institute for Geoinformatics",
         "link": "https://www.uni-muenster.de/Geoinformatics/en/",
         "title": "Master of Science - Geospatial Technologies",
-        "timestamp": "September 2017 - March 2019",
+        "timestamp": [
+          ["2018-04-01T00:00:00.000Z", "2018-08-08T00:00:00.000Z"]
+        ],
         "icon": "<i class='fa fa-graduation-cap fa-2x'></i>",
         "description": "Attendance of second Master semester, attended courses such as Python in GIS, Location-Based Services, Unmanned Aerial Systems, Usage-Centered Design of GIS applications, Advanced Research Methods and Skills, Spatial Data Analysis in R, SenseBox, Project Management"
       },
@@ -94,7 +102,9 @@ var education = {
         "facility": "Universitat Jaume I",
         "link": "https://www.uji.es/",
         "title": "Master of Science - Geospatial Technologies",
-        "timestamp": "September 2017 - March 2019",
+        "timestamp": [
+          ["2017-09-13T00:00:00.000Z", "2019-03-04T00:00:00.000Z"]
+      ],
         "icon": "<i class='fa fa-graduation-cap fa-2x'></i>",
         "description": "Attendance of first and third Master semesters, writing of Master thesis, attended courses such as Programming, Spatial Databases, Software Engineering, Applied Mathematics and Statistics, Spatial Analysis, Spatial Data Visualisation, Web and Mobile GIS development, Remote sensing, GIS Servers, Spatial Data Infrastructures"
       },
@@ -115,7 +125,9 @@ var education = {
         "facility": "Universidade Nova de Lisboa",
         "link": "http://www.novaims.unl.pt/",
         "title": "Master of Science - Geospatial Technologies",
-        "timestamp": "September 2017 - March 2019",
+        "timestamp": [
+          ["2018-12-07T00:00:00.000Z", "2018-12-10T00:00:00.000Z"]
+        ],
         "icon": "<i class='fa fa-graduation-cap fa-2x'></i>",
         "description": "GeoMundus 2018 Conference"
       },
@@ -142,7 +154,9 @@ var work = {
         "facility": "EURAC Research - Institute for Earth Observation",
         "link": "http://www.eurac.edu/en/research/mountains/remsen/Pages/default.aspx",
         "title": "GI Researcher & Developer",
-        "timestamp": "March 2016 - July 2017",
+        "timestamp": [
+          ["2016-03-07T00:00:00.000Z", "2017-07-01T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-briefcase fa-2x'></i>",
         "description": "Researcher in Technology for Environmental Monitoring, OGC Sensor Web Standards and geospatial data management and processing"
       },
@@ -163,7 +177,7 @@ var work = {
         "facility": "University of Graz - Institute for Geography",
         "link": "https://geographie.uni-graz.at/en/",
         "title": "Teaching Assistant",
-        "timestamp": "March 2015 - July 2015",
+        "timestamp": [["2015-03-04T00:00:00.000Z", "2015-07-01T00:00:00.000Z"]],
         "icon": "<i class='fas fa-briefcase fa-2x'></i>",
         "description": "Teaching assistant in Technical English for Geographers, teaching geographical terminology to geography students"
       },
@@ -184,7 +198,12 @@ var work = {
         "facility": "AlphaBeta Piccadilly Language School",
         "link": "https://www.alphabeta.it/en/welcome-1.html",
         "title": "English Teacher",
-        "timestamp": "July 2010, July 2011, July 2016, March 2016 - June 2017",
+        "timestamp": [
+          ["2010-07-04T00:00:00.000Z", "2010-08-01T00:00:00.000Z"],
+          ["2011-07-04T00:00:00.000Z", "2011-08-01T00:00:00.000Z"],
+          ["2016-07-04T00:00:00.000Z", "2016-08-01T00:00:00.000Z"],
+          ["2016-03-04T00:00:00.000Z", "2016-08-01T00:00:00.000Z"],
+        ],
         "icon": "<i class='fas fa-briefcase fa-2x'></i>",
         "description": "Language Coordinator for English summer camps for 8-12 year-olds, teaching English as a foreign language to adults at A2 & B1 levels"
       },
@@ -205,7 +224,9 @@ var work = {
         "facility": "Universidad UNISITE",
         "link": "https://www.unisite.mx/l",
         "title": "English Teacher",
-        "timestamp": "November 2013 - May 2014",
+        "timestamp": [
+          ["2013-11-04T00:00:00.000Z", "2014-05-01T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-briefcase fa-2x'></i>",
         "description": "Teaching English as a foreign language to adults at A1 & A2 levels"
       },
@@ -226,7 +247,9 @@ var work = {
         "facility": "Work and Travel",
         "link": "https://globalworkandtravel.com/",
         "title": "Volunteer",
-        "timestamp": "February 2019",
+        "timestamp": [
+          ["2009-02-02T00:00:00.000Z", "2009-02-025T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-briefcase fa-2x'></i>",
         "description": "One month of voluntary work in Cabuya village, teaching at school, help with maintenance of village infrastructure, aid in animal rescue centre"
       },
@@ -250,7 +273,10 @@ var residence = {
         "type": "Place of birth & Residence",
         "city": "Bolzano",
         "country": "Italy",
-        "timestamp": "1990 - 2011, February 2016 - August 2017",
+        "timestamp":[
+          ["1990-09-13T00:00:00.000Z", "2011-09-25T00:00:00.000Z"],
+          ["2016-02-13T00:00:00.000Z", "2017-08-25T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-home fa-2x'></i>",
         "description": "Place of birth; primary, secondary and high school; family"
       },
@@ -268,7 +294,9 @@ var residence = {
         "type": "Residence",
         "city": "Guadalajara",
         "country": "Mexico",
-        "timestamp": "August 2013 - June 2014",
+        "timestamp": [
+          ["2013-08-08T00:00:00.000Z", "2014-05-25T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-home fa-2x'></i>",
         "description": "Residence during an International Student Exchange (Bachelor) in Mexico"
       },
@@ -286,7 +314,9 @@ var residence = {
         "type": "Residence",
         "city": "Bournemouth",
         "country": "United Kingdom",
-        "timestamp": "",
+        "timestamp": [
+          ["1990-09-13T00:00:00.000Z", "2018-03-01T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-home fa-2x'></i>",
         "description": "Yearly visits and stays due to family, schooling extension in local primary school between age 6 and 9"
       },
@@ -304,7 +334,10 @@ var residence = {
         "type": "Residence",
         "city": "Graz",
         "country": "Austria",
-        "timestamp": "September 2011 - August 2013, September 2014 - February 2016",
+        "timestamp": [
+          ["2011-09-25T00:00:00.000Z", "2013-08-01T00:00:00.000Z"],
+          ["2014-03-15T00:00:00.000Z", "2016-02-28T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-home fa-2x'></i>",
         "description": "Residence during Bachelor study period"
       },
@@ -322,7 +355,10 @@ var residence = {
         "type": "Residence",
         "city": "Castellón de la Plana",
         "country": "Spain",
-        "timestamp": "September 2017 - March 2018, September 2018 - February 2019",
+        "timestamp": [
+          ["2017-09-01T00:00:00.000Z", "2018-03-01T00:00:00.000Z"],
+          ["2018-09-07T00:00:00.000Z", "2019-03-05T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-home fa-2x'></i>",
         "description": "Residence during the first and third Master semesters"
       },
@@ -340,7 +376,9 @@ var residence = {
         "type": "Residence",
         "city": "Münster",
         "country": "Spain",
-        "timestamp": "March 2018 - August 2018",
+        "timestamp":[
+          ["2018-03-20T00:00:00.000Z", "2018-08-10T00:00:00.000Z"]
+        ],
         "icon": "<i class='fas fa-home fa-2x'></i>",
         "description": "Residence during second Master semester"
       },

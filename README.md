@@ -14,4 +14,4 @@ This online portfolio is based on the [Bootstrap portfolio template](https://git
 - [Heroku](https://heroku.com)
 
 ## Demo
-[https://dmarshhunn-portfolio.herokuapp.com/](https://dmarshhunn-portfolio.herokuapp.com/)
+[https://danji90.github.io/](https://danji90.github.io/)

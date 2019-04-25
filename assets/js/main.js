@@ -275,7 +275,6 @@ jQuery(document).ready(function($) {
 
       // Get active layers
       active = control.getOverlays()
-      console.log(active);
 
       // Set time slider global parameters
       startDate = dt_cur_from;
@@ -297,24 +296,6 @@ jQuery(document).ready(function($) {
       if (active.Resident){resiSubgroup.addTo(map)}
     },
   });
-
-  // function for filtering life events according to time slider
-
-  // function timeFilter(mappingGroup, slideStart, slideEnd) {
-  //   let features = [];
-  //   for (let i=0; i<mappingGroup.features.length; i++) {
-  //     let eventStart = new Date(String(mappingGroup.features[i].properties.timestamp[0][0]));
-  //     let eventEnd = new Date(String(mappingGroup.features[i].properties.timestamp[0][1]));
-  //     if (eventStart.getTime()>slideStart && eventStart.getTime()<slideEnd || slideStart>eventStart.getTime() && slideEnd<eventEnd.getTime()) {
-  //       features.push(mappingGroup.features[i]);
-  //     }
-  //   }
-  //   let markerGroup = {
-  //     'type': 'FeatureCollection',
-  //     'features': features,
-  //   };
-  //   return markerGroup;
-  // }
 
   // Add general marker cluster group
 
@@ -367,101 +348,11 @@ jQuery(document).ready(function($) {
     return subgroup
   }
 
-  // Education
-
   let eduLayer = L.featureGroup.subGroup(mcg);
 
-  // let eduMarkers = L.geoJSON(education, {
-  //   pointToLayer: function(feature, latlng) {
-  //     var icon = L.divIcon({
-  //       className: 'mapIcon',
-  //       html: feature.properties.icon,
-  //     });
-  //     return L.marker(latlng, {icon: icon});
-  //   },
-  //   filter: function(feature, layer) {
-  //     let eventStart = new Date(String(feature.properties.timestamp[0][0]));
-  //     let eventEnd = new Date(String(feature.properties.timestamp[0][1]));
-  //     if (eventStart.getTime()>startDate && eventStart.getTime()<endDate || startDate>eventStart.getTime() && endDate<eventEnd.getTime()) {
-  //       return true;
-  //     } else {
-  //       return false
-  //     }
-  //   },
-  //   onEachFeature: function(feature, layer) {
-  //     // layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
-  //     layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
-  //   },
-  // });
-  // eduLayer.addLayer(eduMarkers);
-  // eduLayer.addTo(map);
-  // eduLayer.on('add', function() {
-  //   map.fitBounds(mcg.getBounds());
-  // });
-
-  // Work
-
   let workLayer = L.featureGroup.subGroup(mcg);
-  // let workMarkers = L.geoJSON(work, {
-  //   pointToLayer: function(feature, latlng) {
-  //     var icon = L.divIcon({
-  //       className: 'mapIcon',
-  //       html: feature.properties.icon,
-  //     });
-  //     return L.marker(latlng, {icon: icon});
-  //   },
-  //   filter: function(feature, layer) {
-  //     let eventStart = new Date(String(feature.properties.timestamp[0][0]));
-  //     let eventEnd = new Date(String(feature.properties.timestamp[0][1]));
-  //     if (eventStart.getTime()>startDate && eventStart.getTime()<endDate || startDate>eventStart.getTime() && endDate<eventEnd.getTime()) {
-  //       return true;
-  //     } else {
-  //       return false
-  //     }
-  //   },
-  //   onEachFeature: function(feature, layer) {
-  //     layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
-  //     // layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>' + feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
-  //   },
-  // });
-  // workLayer.addLayer(workMarkers);
-  // workLayer.addTo(map);
-  // workLayer.on('add', function() {
-  //   map.fitBounds(mcg.getBounds());
-  // });
-
-  // Resident
 
   let residentLayer = L.featureGroup.subGroup(mcg);
-  // let residentMarkers = L.geoJSON(residence, {
-  //   pointToLayer: function(feature, latlng) {
-  //     var icon = L.divIcon({
-  //       className: 'mapIcon',
-  //       html: feature.properties.icon,
-  //     });
-  //     return L.marker(latlng, {icon: icon});
-  //   },
-  //   filter: function(feature, layer) {
-  //     let eventStart = new Date(String(feature.properties.timestamp[0][0]));
-  //     let eventEnd = new Date(String(feature.properties.timestamp[0][1]));
-  //     if (eventStart.getTime()>startDate && eventStart.getTime()<endDate || startDate>eventStart.getTime() && endDate<eventEnd.getTime()) {
-  //       return true;
-  //     } else {
-  //       return false
-  //     }
-  //   },
-  //   onEachFeature: function(feature, layer) {
-  //     // layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p>' + feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
-  //     layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p>' + feature.properties.city+', '+feature.properties.country+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
-  //   },
-  // });
-  // residentLayer.addLayer(residentMarkers);
-  // residentLayer.addTo(map);
-  // residentLayer.on('add', function() {
-  //   map.fitBounds(mcg.getBounds());
-  // });
-
-  //Countries layer
 
   let countriesLayer = L.featureGroup();
   let countryPolygons = L.geoJSON(countries, {

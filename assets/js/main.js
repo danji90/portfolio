@@ -209,12 +209,40 @@ jQuery(document).ready(function($) {
 
   //// Map markers & legend
 
-  //Education
+  //function for filtering life events according to time slider
+
+  function timeFilter(mappingGroup, slideStart, slideEnd){
+    
+    var features = []
+
+    for (var i=0;i<mappingGroup.features.length;i++){
+      var eventStart = new Date(String(mappingGroup.features[i].properties.timestamp[0][0]))
+      var eventEnd = new Date(String(mappingGroup.features[i].properties.timestamp[0][1]))
+      if (eventStart.getTime()>slideStart.getTime() && eventStart.getTime()<slideEnd.getTime()  || slideStart.getTime()>eventStart.getTime() && slideEnd.getTime()<eventEnd.getTime()){
+        features.push(mappingGroup.features[i])
+      }
+    }
+
+    var markerGroup = {
+      "type": "FeatureCollection",
+      "features": features
+    }
+
+    return markerGroup
+
+  }
+
+  // Add general marker cluster group
 
   var mcg = L.markerClusterGroup({
       spiderfyOnMaxZoom: false,
       showCoverageOnHover: false
   }).addTo(map);
+
+
+  //
+
+  //Education
 
   var eduLayer = L.featureGroup.subGroup(mcg);
   var eduMarkers =  L.geoJSON(education, {
@@ -258,6 +286,7 @@ jQuery(document).ready(function($) {
     map.fitBounds(mcg.getBounds());
   })
 
+  // Resident
 
   var residentLayer = L.featureGroup.subGroup(mcg);
   var residentMarkers =  L.geoJSON(residence, {
@@ -280,7 +309,7 @@ jQuery(document).ready(function($) {
   })
 
   var countriesLayer = L.featureGroup();
-  var coutryPolygons =  L.geoJSON(countries, {
+  var countryPolygons =  L.geoJSON(countries, {
       style: function (feature) {
     		return {
           color: "#FF6347"
@@ -290,13 +319,13 @@ jQuery(document).ready(function($) {
         layer.bindPopup('<p align="center"><strong>'+ feature.properties.sovereignt + '</strong><p>');
       }
     })
-  countriesLayer.addLayer(coutryPolygons)
+  countriesLayer.addLayer(countryPolygons)
   // countriesLayer.addTo(map)
   countriesLayer.on('add', function(){
     map.fitBounds(countriesLayer.getBounds());
   })
 
-  var remWork = map.on('overlayremove', function(a) { map.removeLayer(workLayer)});
+  // var remWork = map.on('overlayremove', function(a) { map.removeLayer(workLayer)});
 
   var overlays = {
     "Education": eduLayer,
@@ -321,67 +350,51 @@ jQuery(document).ready(function($) {
 
   // time slider
 
-  //// Source: https://codepen.io/caseymhunt/pen/kertA
+  var dt_from = "1990/09/12 23:59:00";
+  var dt_to = "2019/05/02 00:00:00";
 
-  // $("#slider-range").slider({
-  //   range: true,
-  //   min: 0,
-  //   max: 1440,
-  //   step: 15,
-  //   values: [540, 1020],
-  //   slide: function (e, ui) {
-  //       var hours1 = Math.floor(ui.values[0] / 60);
-  //       var minutes1 = ui.values[0] - (hours1 * 60);
-  //
-  //       if (hours1.length == 1) hours1 = '0' + hours1;
-  //       if (minutes1.length == 1) minutes1 = '0' + minutes1;
-  //       if (minutes1 == 0) minutes1 = '00';
-  //       if (hours1 >= 12) {
-  //           if (hours1 == 12) {
-  //               hours1 = hours1;
-  //               minutes1 = minutes1 + " PM";
-  //           } else {
-  //               hours1 = hours1 - 12;
-  //               minutes1 = minutes1 + " PM";
-  //           }
-  //       } else {
-  //           hours1 = hours1;
-  //           minutes1 = minutes1 + " AM";
-  //       }
-  //       if (hours1 == 0) {
-  //           hours1 = 12;
-  //           minutes1 = minutes1;
-  //       }
-  //
-  //
-  //
-  //       $('.slider-time').html(hours1 + ':' + minutes1);
-  //
-  //       var hours2 = Math.floor(ui.values[1] / 60);
-  //       var minutes2 = ui.values[1] - (hours2 * 60);
-  //
-  //       if (hours2.length == 1) hours2 = '0' + hours2;
-  //       if (minutes2.length == 1) minutes2 = '0' + minutes2;
-  //       if (minutes2 == 0) minutes2 = '00';
-  //       if (hours2 >= 12) {
-  //           if (hours2 == 12) {
-  //               hours2 = hours2;
-  //               minutes2 = minutes2 + " PM";
-  //           } else if (hours2 == 24) {
-  //               hours2 = 11;
-  //               minutes2 = "59 PM";
-  //           } else {
-  //               hours2 = hours2 - 12;
-  //               minutes2 = minutes2 + " PM";
-  //           }
-  //       } else {
-  //           hours2 = hours2;
-  //           minutes2 = minutes2 + " AM";
-  //       }
-  //
-  //       $('.slider-time2').html(hours2 + ':' + minutes2);
-  //   }
-  // });
+  $('.slider-time').html(dt_from);
+  $('.slider-time2').html(dt_to);
 
+  var startDate = Date.parse(dt_from)
+  console.log(startDate);
+  var endDate = Date.parse(dt_to)
+
+  var min_val = startDate/1000;
+  var max_val = endDate/1000;
+
+  function zeroPad(num, places) {
+    var zero = places - num.toString().length + 1;
+    return Array(+(zero > 0 && zero)).join("0") + num;
+  }
+  function formatDT(__dt) {
+      var year = __dt.getFullYear();
+      var month = zeroPad(__dt.getMonth()+1, 2);
+      var date = zeroPad(__dt.getDate(), 2);
+      var hours = zeroPad(__dt.getHours(), 2);
+      var minutes = zeroPad(__dt.getMinutes(), 2);
+      var seconds = zeroPad(__dt.getSeconds(), 2);
+      return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
+  };
+
+
+  $("#slider-range").slider({
+      range: true,
+      min: min_val,
+      max: max_val,
+      step: 10,
+      values: [min_val, max_val],
+      slide: function (e, ui) {
+          var dt_cur_from = new Date(ui.values[0]*1000); //.format("yyyy-mm-dd hh:ii:ss");
+          console.log(dt_cur_from.getTime());
+          $('.slider-time').html(formatDT(dt_cur_from));
+
+          var dt_cur_to = new Date(ui.values[1]*1000); //.format("yyyy-mm-dd hh:ii:ss");
+          $('.slider-time2').html(formatDT(dt_cur_to));
+
+          testLayer = timeFilter(education, dt_cur_from, dt_cur_to)
+          console.log(testLayer);
+      }
+  });
 
 });

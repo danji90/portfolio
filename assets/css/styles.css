@@ -888,11 +888,3 @@ z-index: 999;
 .ui-slider a:focus {
     outline:none;
 }
-
-#slider-range {
-  width: 90%;
-  margin: 0 auto;
-}
-#time-range {
-  width: 400px;
-}

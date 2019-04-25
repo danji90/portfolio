@@ -24,6 +24,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="node_modules/jquery-ui-dist//jquery-ui.min.css" rel='stylesheet' type='text/css'>
 
     <!-- Leaflet -->
     <link href="node_modules/leaflet/dist/leaflet.css" rel='stylesheet' type='text/css'>
@@ -207,15 +208,15 @@
                     </label>
                   </div> -->
                   <!-- Time slider -->
-                  <!-- <div id="time-range">
-                    <p>Time Range: <span class="slider-time">9:00 AM</span> - <span class="slider-time2">5:00 PM</span>
+                  <div id="time-range">
+                      <p>Time Range: <span class="slider-time"></span> - <span class="slider-time2"></span>
+                      </p>
 
-                    </p>
-                    <div class="sliders_step1">
-                        <div id="slider-range"></div>
-                    </div>
-                </div> -->
-                </div><!--//section-inner-->
+                      <div class="sliders_step1">
+                          <div id="slider-range"></div>
+                      </div>
+                  </div>
+              </div><!--//section-inner-->
             </section><!--//section-->
           </div>
         </div><!--//masonry-->
@@ -726,6 +727,7 @@
 
     <!-- Javascript -->
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
     <script type="text/javascript" src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- <script type="text/javascript" src="node_modules/jquery-rss/dist/jquery.rss.min.js"></script> -->

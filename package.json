@@ -32,5 +32,9 @@
   },
   "engines": {
     "node": "10.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0"
   }
 }

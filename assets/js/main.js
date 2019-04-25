@@ -203,6 +203,31 @@ jQuery(document).ready(function($) {
     $('#map').removeClass('map-scroll');
   });
 
+  // Add method to layer control class
+  L.Control.Layers.include({
+    getOverlays: function() {
+      // create hash to hold all layers
+      var control, layers;
+      layers = {};
+      control = this;
+
+      // loop thru all layers in control
+      control._layers.forEach(function(obj) {
+        var layerName;
+
+        // check if layer is an overlay
+        if (obj.overlay) {
+          // get name of overlay
+          layerName = obj.name;
+          // store whether it's present on the map or not
+          return layers[layerName] = control._map.hasLayer(obj.layer);
+        }
+      });
+
+      return layers;
+    }
+  });
+
 
   // // Map markers & legend
 
@@ -228,9 +253,9 @@ jQuery(document).ready(function($) {
     var year = __dt.getFullYear();
     var month = zeroPad(__dt.getMonth()+1, 2);
     var date = zeroPad(__dt.getDate(), 2);
-    var hours = zeroPad(__dt.getHours(), 2);
-    var minutes = zeroPad(__dt.getMinutes(), 2);
-    var seconds = zeroPad(__dt.getSeconds(), 2);
+    // var hours = zeroPad(__dt.getHours(), 2);
+    // var minutes = zeroPad(__dt.getMinutes(), 2);
+    // var seconds = zeroPad(__dt.getSeconds(), 2);
     // return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
     return date + '.' + month + '.' + year
   };
@@ -248,6 +273,10 @@ jQuery(document).ready(function($) {
       var dt_cur_to = new Date(ui.values[1]*1000); // .format("yyyy-mm-dd hh:ii:ss");
       $('.slider-time2').html(formatDT(dt_cur_to));
 
+      // Get active layers
+      active = control.getOverlays()
+      console.log(active);
+
       // Set time slider global parameters
       startDate = dt_cur_from;
       endDate = dt_cur_to
@@ -258,9 +287,14 @@ jQuery(document).ready(function($) {
       residentLayer.clearLayers()
 
       // Redefine layers and add to map on time slider change
-      addFilteredLayer(education, eduLayer, startDate, endDate)
-      addFilteredLayer(work, workLayer, startDate, endDate)
-      addFilteredLayer(residence, residentLayer, startDate, endDate)
+      eduSubgroup = createFilteredLayer(education, eduLayer, startDate, endDate)
+      workSubgroup = createFilteredLayer(work, workLayer, startDate, endDate)
+      resiSubgroup = createFilteredLayer(residence, residentLayer, startDate, endDate)
+
+      // Only add to map if they are currently active
+      if (active.Education){eduSubgroup.addTo(map)}
+      if (active.Work){workSubgroup.addTo(map)}
+      if (active.Resident){resiSubgroup.addTo(map)}
     },
   });
 
@@ -292,7 +326,7 @@ jQuery(document).ready(function($) {
 
   // function for adding marker layer
 
-  function addFilteredLayer(markerArray, layer, start, end) {
+  function createFilteredLayer(markerArray, layer, start, end) {
 
     // data = timeFilter(markerArray, start, end)
 
@@ -326,11 +360,11 @@ jQuery(document).ready(function($) {
     });
 
     subgroup.addLayer(markers);
-    subgroup.addTo(map);
     subgroup.on('add', function() {
       map.fitBounds(mcg.getBounds());
     });
 
+    return subgroup
   }
 
   // Education
@@ -465,12 +499,18 @@ jQuery(document).ready(function($) {
   //   map.fitBounds(mcg.getBounds());
   // })
 
-  L.control.layers(baseLayers, overlays, {
+  let control = new L.control.layers(baseLayers, overlays, {
     autoZIndex: true,
   }).addTo(map);
 
-  addFilteredLayer(education, eduLayer, startDate, endDate)
-  addFilteredLayer(work, workLayer, startDate, endDate)
-  addFilteredLayer(residence, residentLayer, startDate, endDate)
+  eduSubgroup = createFilteredLayer(education, eduLayer, startDate, endDate)
+  workSubgroup = createFilteredLayer(work, workLayer, startDate, endDate)
+  resiSubgroup = createFilteredLayer(residence, residentLayer, startDate, endDate)
+
+  eduSubgroup.addTo(map)
+  workSubgroup.addTo(map)
+  resiSubgroup.addTo(map)
+
+  // console.log(control.getOverlays());
 
 });

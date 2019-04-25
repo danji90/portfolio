@@ -248,7 +248,7 @@ const work = {
         "link": "https://globalworkandtravel.com/",
         "title": "Volunteer",
         "timestamp": [
-          ["2009-02-02T00:00:00.000Z", "2009-02-025T00:00:00.000Z"]
+          ["2009-02-02T00:00:00.000Z", "2009-02-25T00:00:00.000Z"]
         ],
         "icon": "<i class='fas fa-briefcase fa-2x'></i>",
         "description": "One month of voluntary work in Cabuya village, teaching at school, help with maintenance of village infrastructure, aid in animal rescue centre"
@@ -260,7 +260,30 @@ const work = {
           9.596476164457002
         ]
       }
-    }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Work",
+        "city": "Freiburg",
+        "country": "Germany",
+        "facility": "GeOps - Spatial Web Developent",
+        "link": "https://geops.ch/",
+        "title": "Frontend web developer",
+        "timestamp": [
+          ["2019-05-01T00:00:00.000Z", "2019-05-02T00:00:00.000Z"]
+        ],
+        "icon": "<i class='fas fa-briefcase fa-2x'></i>",
+        "description": "Frontend UI development for mainly mobility and traffic applications"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.848697,
+          47.991419
+        ]
+      }
+    },
   ]
 }
 
@@ -375,7 +398,7 @@ const residence = {
       "properties": {
         "type": "Residence",
         "city": "Münster",
-        "country": "Spain",
+        "country": "Germany",
         "timestamp":[
           ["2018-03-20T00:00:00.000Z", "2018-08-10T00:00:00.000Z"]
         ],

@@ -211,8 +211,8 @@ jQuery(document).ready(function($) {
   let dt_from = '1990/09/12 23:59:00';
   let dt_to = '2019/05/02 00:00:00';
 
-  $('.slider-time').html(dt_from);
-  $('.slider-time2').html(dt_to);
+  $('.slider-time').html('13.09.1990');
+  $('.slider-time2').html('02.05.2019');
 
   let startDate = Date.parse(dt_from);
   let endDate = Date.parse(dt_to);
@@ -231,7 +231,8 @@ jQuery(document).ready(function($) {
     var hours = zeroPad(__dt.getHours(), 2);
     var minutes = zeroPad(__dt.getMinutes(), 2);
     var seconds = zeroPad(__dt.getSeconds(), 2);
-    return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
+    // return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
+    return date + '.' + month + '.' + year
   };
 
 
@@ -241,51 +242,45 @@ jQuery(document).ready(function($) {
     max: max_val,
     step: 10,
     values: [min_val, max_val],
-    stop: function(e, ui) {
+    slide: function(e, ui) {
       var dt_cur_from = new Date(ui.values[0]*1000); // .format("yyyy-mm-dd hh:ii:ss");
-      console.log(dt_cur_from.getTime());
       $('.slider-time').html(formatDT(dt_cur_from));
       var dt_cur_to = new Date(ui.values[1]*1000); // .format("yyyy-mm-dd hh:ii:ss");
       $('.slider-time2').html(formatDT(dt_cur_to));
 
+      // Set time slider global parameters
       startDate = dt_cur_from;
       endDate = dt_cur_to
 
+      // Clear present layers
       eduLayer.clearLayers()
       workLayer.clearLayers()
       residentLayer.clearLayers()
 
+      // Redefine layers and add to map on time slider change
       addFilteredLayer(education, eduLayer, startDate, endDate)
       addFilteredLayer(work, workLayer, startDate, endDate)
       addFilteredLayer(residence, residentLayer, startDate, endDate)
-      // map.removeLayer(workLayer)
-      // workLayer = L.featureGroup.subGroup(mcg);
-      // map.removeLayer(residentLayer)
-      // residentLayer = L.featureGroup.subGroup(mcg);
-      //
-      // addFilteredLayer(education, eduLayer, dt_cur_from, dt_cur_to)
-      // addFilteredLayer(work, workLayer, dt_cur_from, dt_cur_to)
-      // addFilteredLayer(residence, residentLayer, dt_cur_from, dt_cur_to)
     },
   });
 
   // function for filtering life events according to time slider
 
-  function timeFilter(mappingGroup, slideStart, slideEnd) {
-    let features = [];
-    for (let i=0; i<mappingGroup.features.length; i++) {
-      let eventStart = new Date(String(mappingGroup.features[i].properties.timestamp[0][0]));
-      let eventEnd = new Date(String(mappingGroup.features[i].properties.timestamp[0][1]));
-      if (eventStart.getTime()>slideStart && eventStart.getTime()<slideEnd || slideStart>eventStart.getTime() && slideEnd<eventEnd.getTime()) {
-        features.push(mappingGroup.features[i]);
-      }
-    }
-    let markerGroup = {
-      'type': 'FeatureCollection',
-      'features': features,
-    };
-    return markerGroup;
-  }
+  // function timeFilter(mappingGroup, slideStart, slideEnd) {
+  //   let features = [];
+  //   for (let i=0; i<mappingGroup.features.length; i++) {
+  //     let eventStart = new Date(String(mappingGroup.features[i].properties.timestamp[0][0]));
+  //     let eventEnd = new Date(String(mappingGroup.features[i].properties.timestamp[0][1]));
+  //     if (eventStart.getTime()>slideStart && eventStart.getTime()<slideEnd || slideStart>eventStart.getTime() && slideEnd<eventEnd.getTime()) {
+  //       features.push(mappingGroup.features[i]);
+  //     }
+  //   }
+  //   let markerGroup = {
+  //     'type': 'FeatureCollection',
+  //     'features': features,
+  //   };
+  //   return markerGroup;
+  // }
 
   // Add general marker cluster group
 
@@ -321,7 +316,12 @@ jQuery(document).ready(function($) {
       },
       onEachFeature: function(feature, layer) {
         // layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+feature.properties.timestamp+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
-        layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+        if (feature.properties.type == 'Work' || feature.properties.type == 'Education'){
+          layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p><h6>'+feature.properties.title+'</h6><p><a href="'+feature.properties.link+'" target="_blank">'+feature.properties.facility+'</a>, '+feature.properties.city+', '+feature.properties.country+'</p><p>'+ new Date(feature.properties.timestamp[0][0]).toLocaleString("en-us", { month: "long" }) + ' ' + new Date(feature.properties.timestamp[0][0]).getFullYear() + ' - '+ new Date(feature.properties.timestamp[0][1]).toLocaleString("en-us", { month: "long" }) + ' ' + new Date(feature.properties.timestamp[0][1]).getFullYear() +'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+        } else {
+          layer.bindPopup('<p align="center"><strong>'+ feature.properties.type + '</strong><p>' + feature.properties.city+', '+feature.properties.country +'</p><p>'+ new Date(feature.properties.timestamp[0][0]).toLocaleString("en-us", { month: "long" }) + ' ' + new Date(feature.properties.timestamp[0][0]).getFullYear() + ' - '+ new Date(feature.properties.timestamp[0][1]).toLocaleString("en-us", { month: "long" }) + ' ' + new Date(feature.properties.timestamp[0][1]).getFullYear() +'</p><p><strong>Descripton</strong>: '+feature.properties.description);
+        }
+
       },
     });
 
